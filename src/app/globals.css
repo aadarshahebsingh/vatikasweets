@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background-luxury: #F8F1EC;
+  --color-background-secondary: #FFF8F4;
+  --color-gold-luxury: #C9A227;
+  --color-gold-hover: #B58E1D;
+  --color-text-luxury: #111111;
+  --color-text-secondary: #5B5B5B;
+  --color-border-luxury: #E7D8CC;
+
+  --font-serif-luxury: var(--font-cormorant), serif;
+  --font-sans-luxury: var(--font-inter), sans-serif;
+  --font-button-luxury: var(--font-poppins), sans-serif;
+}
+
+:root {
+  --background: #F8F1EC;
+  --foreground: #111111;
+}
+
+body {
+  background-color: #F8F1EC;
+  color: #111111;
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Luxury custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF8F4;
+}
+::-webkit-scrollbar-thumb {
+  background: #E7D8CC;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A227;
+}
+
+/* Custom Glassmorphism styles */
+.glass-panel {
+  background: rgba(255, 248, 244, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(231, 216, 204, 0.4);
+}
+
+.glass-nav {
+  background: rgba(248, 241, 236, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(231, 216, 204, 0.4);
+}
+
+/* Shimmer Gold Effect */
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(201, 162, 39, 0.1) 25%,
+    rgba(201, 162, 39, 0.3) 50%,
+    rgba(201, 162, 39, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-gold 2s infinite linear;
+}
+
+@keyframes shimmer-gold {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Liquid Gold Animation for Hover */
+.gold-liquid-button {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease;
+}
+
+.gold-liquid-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: #C9A227;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
+}
+
+.gold-liquid-button:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+.gold-liquid-button:hover {
+  color: #F8F1EC;
+}
+
+/* Custom pointer overrides for canvas */
+.pointer-none {
+  pointer-events: none;
+}
